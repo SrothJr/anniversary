@@ -1,26 +1,41 @@
 # Seven Years, One Beautiful Story
 
-A romantic, dependency-free anniversary website for Nazim & Mithila.
+A small romantic corner of the internet made for **Nazim and Tanjila Yesmin Mithila**.
 
-## Customize
+The page is a celebration of seven years together, with a countdown to November 26, a relationship timeline, personal memories, a love letter, and a few little surprises along the way.
 
-- Replace the visual placeholders in `index.html` with your own photos.
-- Or simply add photos to `images/hero/`, `images/timeline/`, and `images/gallery/` using the filenames documented in `images/README.md`.
-- Update the timeline copy and letter in `index.html`.
-- Update the seven reasons in `script.js`.
-- Adjust colors and typography at the top of `styles.css`.
-- The entry password is stored as a SHA-256 hash in `script.js`, so the plaintext password is not present in the public repository. To change it, hash the lowercase password with `printf 'your-password' | sha256sum` and replace `ACCESS_PASSWORD_HASH`.
+## Adding your photos
 
-## Run locally
+Place your photos in the folders below. The suggested names are listed in `images/README.md`.
 
-Because this is a static site, open `index.html` directly or run:
+- `images/hero/` — the main photo
+- `images/timeline/` — memories from each year
+- `images/gallery/` — favorite moments and everyday snapshots
 
-```bash
-npx serve .
-```
+Photos that have not been added yet will continue to show the soft illustrated placeholders.
 
-## GitHub Pages
+## Making it personal
 
-In GitHub, open **Settings → Pages**, choose **Deploy from a branch**, select the default branch and `/ (root)`, then save. The included `.nojekyll` file keeps static assets working correctly.
+The written memories, timeline entries, reasons, and letter can be updated whenever you like:
 
-> The password gate remains client-side, so it is suitable for a personal surprise but not for truly confidential information. A static GitHub Pages site cannot provide server-side authentication.
+- `index.html` contains the visible messages and story
+- `script.js` contains the seven rotating reasons
+- `styles.css` contains the colors and visual style
+
+## The anniversary page
+
+The page is available at:
+
+<https://srothjr.github.io/anniversary/>
+
+It opens with a private welcome screen before showing the story. The access setting is intended for a personal surprise and should not be used for highly confidential information.
+
+## A note about messages and visitors
+
+The page itself is designed to stay simple and self-contained. A shared message box or a visit counter would need a small outside service to remember information between visitors. Good additions later would be:
+
+- A simple message form that sends replies to an email
+- A shared guestbook
+- A private visitor counter
+
+These can be added while keeping the page hosted on GitHub Pages.
