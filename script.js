@@ -1,4 +1,28 @@
 const body = document.body;
+const ACCESS_PASSWORD = "26november";
+const accessGate = document.querySelector(".access-gate");
+const accessForm = document.querySelector(".access-form");
+const accessInput = document.querySelector("#access-password");
+const accessError = document.querySelector(".access-error");
+accessInput.focus();
+accessForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  if (accessInput.value.trim().toLowerCase() === ACCESS_PASSWORD) {
+    accessError.classList.remove("visible");
+    accessGate.classList.add("is-unlocking");
+    window.setTimeout(() => {
+      body.classList.remove("is-locked");
+      accessGate.remove();
+    }, 650);
+  } else {
+    accessError.classList.add("visible");
+    accessInput.classList.add("invalid");
+    accessInput.value = "";
+    accessInput.focus();
+    window.setTimeout(() => accessInput.classList.remove("invalid"), 450);
+  }
+});
+
 const countdownTarget = document.querySelector(".countdown-year");
 const countdownUnits = {
   days: document.querySelector('[data-countdown="days"]'),

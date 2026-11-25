@@ -9,6 +9,7 @@ A romantic, dependency-free anniversary website for Nazim & Mithila.
 - Update the timeline copy and letter in `index.html`.
 - Update the seven reasons in `script.js`.
 - Adjust colors and typography at the top of `styles.css`.
+- The entry password is currently `26november`; change `ACCESS_PASSWORD` near the top of `script.js` to your own secret.
 
 ## Run locally
 
@@ -22,4 +23,4 @@ npx serve .
 
 In GitHub, open **Settings → Pages**, choose **Deploy from a branch**, select the default branch and `/ (root)`, then save. The included `.nojekyll` file keeps static assets working correctly.
 
-> The theme toggle remembers its setting in the browser. This version intentionally has no real password protection because a client-only password cannot securely protect static content.
+> The password gate is client-side, so it is suitable for a personal surprise but not for truly confidential information. A static GitHub Pages site cannot securely hide its source code.

@@ -29,6 +29,34 @@ body.dark{--bg:#211b1c;--surface:#2a2223;--ink:#f5eee7;--muted:#b0a19b;--line:#4
 .mini-art-seven{background-image:linear-gradient(140deg,rgba(122,93,104,.25),rgba(122,93,104,.8)),url("images/timeline/2024-our-steady-place.jpg");background-size:cover;background-position:center}
 .mini-art-eight{background-image:linear-gradient(140deg,rgba(95,76,101,.25),rgba(95,76,101,.8)),url("images/timeline/2025-still-choosing-us.jpg");background-size:cover;background-position:center}
 .has-image>span,.has-image>b{display:none}
+body.is-locked{overflow:hidden}
+body.is-locked>.site-header,body.is-locked>main,body.is-locked>.site-footer{visibility:hidden}
+.access-gate{position:fixed;inset:0;z-index:100;display:grid;place-items:center;background:var(--bg);overflow:hidden;transition:opacity .6s,transform .6s}
+.access-gate.is-unlocking{opacity:0;transform:scale(1.04);pointer-events:none}
+.access-card{width:min(470px,calc(100% - 40px));padding:54px 55px 42px;text-align:center;background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow);position:relative;z-index:1}
+.access-symbol{font:italic 23px var(--serif);letter-spacing:-1px;color:var(--rose);margin-bottom:28px}
+.access-symbol span{font-size:16px;margin:0 4px}
+.access-eyebrow{justify-content:center;margin-bottom:18px}
+.access-card h1{font:500 clamp(39px,7vw,56px)/1.02 var(--serif);letter-spacing:-2px;margin:0 0 20px}
+.access-card h1 em{font-weight:500;color:var(--rose);font-style:italic}
+.access-copy{color:var(--muted);font-size:13px;max-width:320px;margin:0 auto 29px}
+.access-form{text-align:left}
+.access-form label{display:block;color:var(--muted);font-size:9px;letter-spacing:1.6px;text-transform:uppercase;margin-bottom:8px}
+.password-field{display:flex;align-items:center;border-bottom:1px solid var(--line);margin-bottom:22px}
+.password-field input{width:100%;border:0;outline:0;background:transparent;color:var(--ink);padding:10px 0;font:italic 18px var(--serif)}
+.password-field input::placeholder{color:var(--muted);opacity:.6}
+.password-field span{font-size:18px;color:var(--rose)}
+.access-form .button{width:100%;justify-content:space-between}
+.access-error{height:0;opacity:0;margin:0;color:var(--rose);font-size:11px;text-align:center;transition:opacity .25s}
+.access-error.visible{height:auto;opacity:1;margin-top:14px}
+.password-field input.invalid{animation:shake .4s ease;border-color:var(--rose)}
+.access-date{display:block;color:var(--muted);font-size:9px;letter-spacing:2px;margin-top:34px}
+.access-glow{position:absolute;border-radius:50%;filter:blur(2px);opacity:.45;border:1px solid var(--rose)}
+.access-glow-one{width:550px;height:550px;top:-310px;right:-180px;background:radial-gradient(circle,rgba(179,93,97,.12),transparent 68%)}
+.access-glow-two{width:470px;height:470px;bottom:-290px;left:-210px;background:radial-gradient(circle,rgba(183,150,95,.11),transparent 68%)}
+@keyframes shake{25%{transform:translateX(-5px)}50%{transform:translateX(5px)}75%{transform:translateX(-3px)}}
+body.dark .access-gate{background:var(--bg)}
+@media(max-width:480px){.access-card{padding:40px 25px 30px}.access-card h1{font-size:42px}}
 .placeholder-one{background-image:linear-gradient(135deg,rgba(201,148,136,.3),rgba(60,58,78,.65)),url("images/gallery/look.jpg");background-size:cover;background-position:center}
 .placeholder-two{background-image:linear-gradient(135deg,rgba(208,174,128,.25),rgba(119,111,107,.7)),url("images/gallery/adventures.jpg");background-size:cover;background-position:center}
 .placeholder-three{background-image:linear-gradient(135deg,rgba(142,171,165,.25),rgba(209,161,143,.7)),url("images/gallery/chaos.jpg");background-size:cover;background-position:center}
