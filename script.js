@@ -1,13 +1,19 @@
 const body = document.body;
-const ACCESS_PASSWORD = "26november";
+const ACCESS_PASSWORD_HASH = "b5887c75a2e233596bef4d83f22ce9bd907ee31ab1ad4e5703bf00bb88ef92c5";
 const accessGate = document.querySelector(".access-gate");
 const accessForm = document.querySelector(".access-form");
 const accessInput = document.querySelector("#access-password");
 const accessError = document.querySelector(".access-error");
 accessInput.focus();
-accessForm.addEventListener("submit", (event) => {
+async function hashPassword(value) {
+  const encoded = new TextEncoder().encode(value);
+  const digest = await crypto.subtle.digest("SHA-256", encoded);
+  return Array.from(new Uint8Array(digest), (byte) => byte.toString(16).padStart(2, "0")).join("");
+}
+accessForm.addEventListener("submit", async (event) => {
   event.preventDefault();
-  if (accessInput.value.trim().toLowerCase() === ACCESS_PASSWORD) {
+  const enteredHash = await hashPassword(accessInput.value.trim().toLowerCase());
+  if (enteredHash === ACCESS_PASSWORD_HASH) {
     accessError.classList.remove("visible");
     accessGate.classList.add("is-unlocking");
     window.setTimeout(() => {
